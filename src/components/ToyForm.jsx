@@ -36,7 +36,7 @@ function ToyForm() {
           placeholder="Enter a toy's name..."
           className="input-text"
           value={formData.name}
-          onChange={e => setFormData({...formData, [e.target.name]: e.target.value})}
+          onChange={e => setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}))}
         />
         <br />
         <input
@@ -45,7 +45,7 @@ function ToyForm() {
           placeholder="Enter a toy's image URL..."
           className="input-text"
           value={formData.image}
-          onChange={e => setFormData({...formData, [e.target.name]: e.target.value})}
+          onChange={e => setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}))}
         />
         <br />
         <input
