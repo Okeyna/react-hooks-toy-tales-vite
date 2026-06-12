@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import ToyForm from "./ToyForm";
 import ToyContainer from "./ToyContainer";
+import { ToysProvider } from "../context/ToysContext";
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -14,11 +15,13 @@ function App() {
   return (
     <>
       <Header />
-      {showForm ? <ToyForm /> : null}
-      <div className="buttonContainer">
-        <button onClick={handleClick}>Add a Toy</button>
-      </div>
-      <ToyContainer />
+      <ToysProvider>
+        {showForm ? <ToyForm /> : null}
+        <div className="buttonContainer">
+          <button onClick={handleClick}>Add a Toy</button>
+        </div>
+        <ToyContainer />
+      </ToysProvider>
     </>
   );
 }
